@@ -1,17 +1,18 @@
-# Handwritten Digit Recognition
+# Handwritten Digit Recognition using a Neural Network from Scratch
 
 <p align="center">
   <img src="hand1.png" width="100%" alt="Handwritten Digit Recognition">
 </p>
 
-> A desktop application that recognizes handwritten digits using a Convolutional Neural Network (CNN) trained on the MNIST dataset.
+> A desktop application for handwritten digit recognition using a neural network implemented entirely from scratch in **C++**, featuring autoencoder pretraining, supervised classification, and an interactive **PySide6** interface.
 
 <p align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-Deep%20Learning-orange?logo=tensorflow)
-![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-green?logo=opencv)
-![Tkinter](https://img.shields.io/badge/Tkinter-GUI-blue)
+![C++](https://img.shields.io/badge/C%2B%2B-17-blue?logo=cplusplus)
+![PySide6](https://img.shields.io/badge/PySide6-Qt-green?logo=qt)
+![Neural Network](https://img.shields.io/badge/Neural-Network-red)
+![MNIST](https://img.shields.io/badge/Dataset-MNIST-orange)
 
 </p>
 
@@ -19,120 +20,196 @@
 
 # Overview
 
-Handwritten Digit Recognition is a desktop application that classifies handwritten digits using a Convolutional Neural Network (CNN).
+This project is a desktop application for handwritten digit recognition built around a neural network implemented entirely from scratch in C++.
 
-The application enables users to draw digits on an interactive canvas or load an image for prediction. Images are preprocessed and fed into a trained deep learning model, which predicts the corresponding digit in real time.
+Instead of relying on high-level deep learning frameworks for model creation and training, the neural network—including weight initialization, feedforward propagation, backpropagation, softmax classification, momentum optimization, and autoencoder pretraining—was manually developed in C++.
 
-The project demonstrates the complete machine learning workflow, including preprocessing, model training, inference, and graphical user interface integration.
+Python is used for the graphical user interface, dataset loading, and interaction with the custom C++ neural network through a wrapper module.
 
 ---
 
 # Features
 
-- Handwritten digit recognition
-- CNN-based deep learning model
+- Neural network implemented from scratch
+- Autoencoder pretraining
+- Feedforward propagation
+- Backpropagation
+- Softmax output layer
+- Cross-Entropy loss
+- Momentum optimization
+- He weight initialization
 - MNIST dataset support
-- Real-time prediction
-- Image preprocessing
 - Interactive drawing canvas
-- Image upload
-- Prediction confidence
-- Desktop graphical interface
-- Fast inference
+- Real-time handwritten digit prediction
+- Batch evaluation on random test samples
+- Training loss visualization
+- Python–C++ integration
+- Desktop graphical interface using PySide6
 
 ---
 
 # Technology Stack
 
 - Python
-- TensorFlow / Keras
-- OpenCV
+- C++
+- PySide6 (Qt for Python)
 - NumPy
-- Matplotlib
-- Tkinter
-- PIL (Pillow)
+- TensorFlow (MNIST dataset loading only)
+- Custom C++ Neural Network
+- Python/C++ Wrapper Module
 
 ---
 
-
-# Machine Learning Pipeline
+# Neural Network Architecture
 
 ```text
-Input Image
-      │
-      ▼
-Preprocessing
-      │
-      ▼
-Normalization
-      │
-      ▼
-CNN Model
-      │
-      ▼
+Input Layer (784)
+
+        │
+        ▼
+
+Hidden Layer (128)
+Sigmoid Activation
+
+        │
+        ▼
+
+Output Layer (10)
 Softmax Classification
-      │
-      ▼
-Predicted Digit
 ```
 
 ---
 
-# Model
+# Training Pipeline
 
-The recognition model is based on a Convolutional Neural Network trained using the MNIST handwritten digit dataset.
+```text
+MNIST Dataset
+        │
+        ▼
+Data Normalization
+        │
+        ▼
+Autoencoder Pretraining
+        │
+        ▼
+Encoder Weight Transfer
+        │
+        ▼
+Supervised Classifier Training
+        │
+        ▼
+Feedforward
+        │
+        ▼
+Cross-Entropy Loss
+        │
+        ▼
+Backpropagation
+        │
+        ▼
+Momentum Weight Updates
+        │
+        ▼
+Trained Model
+```
 
-Pipeline:
+---
 
-- Image preprocessing
-- Normalization
-- Feature extraction using convolutional layers
-- Max pooling
-- Fully connected layers
-- Softmax classification
+# From Scratch Implementation
+
+Unlike many handwritten digit recognition projects that rely on pre-built deep learning models, this project implements the core neural network algorithms manually.
+
+Implemented components include:
+
+- Feedforward propagation
+- Backpropagation
+- Autoencoder pretraining
+- Softmax activation
+- Cross-Entropy loss
+- Momentum optimization
+- He weight initialization
+- Weight and bias updates
+- Neural network inference
+- MNIST digit classification
+
+TensorFlow is used **only to download and load the MNIST dataset**. The neural network architecture, training process, optimization, and prediction logic are fully implemented in C++.
 
 ---
 
 # Dataset
 
-- MNIST
-- 60,000 Training Images
-- 10,000 Test Images
-- Image Size: 28×28
-- Classes: 10 (Digits 0–9)
+**MNIST Handwritten Digit Dataset**
+
+- 60,000 training images
+- 10,000 testing images
+- Image resolution: 28 × 28 pixels
+- 10 output classes (digits 0–9)
 
 ---
 
-# Performance
+# Screenshots
 
-- High recognition accuracy on MNIST
-- Fast prediction time
-- Lightweight model suitable for desktop applications
+## Training Interface
+
+Train the neural network, monitor the loss curve, and evaluate the model through the graphical interface.
+
+<p align="center">
+    <img src="hand1.png" width="100%">
+</p>
+
+---
+
+## Interactive Digit Recognition
+
+Draw a handwritten digit on the canvas and let the trained neural network predict the corresponding number in real time.
+
+<p align="center">
+    <img src="hand2.png" width="100%">
+</p>
+
+---
+
+# Educational Objectives
+
+This project was developed to understand the internal mechanics of neural networks by implementing every stage of the learning process manually.
+
+The implementation covers:
+
+- Neural Networks
+- Autoencoders
+- Feedforward Propagation
+- Backpropagation
+- Cross-Entropy Optimization
+- Softmax Classification
+- Momentum Optimization
+- Weight Initialization
+- Handwritten Digit Recognition
 
 ---
 
 # Future Improvements
 
-- EMNIST alphabet recognition
-- Custom dataset training
-- Better preprocessing
-- Model comparison
+- Multiple hidden layers
+- ReLU activation support
+- Adam optimizer
+- Dropout regularization
+- Learning rate scheduling
+- Model serialization
 - GPU acceleration
-- Export trained models
-- Web version
+- Support for additional handwritten datasets (EMNIST)
 
 ---
 
-# Developers
+# Developer
 
 Developed by
 
-- Kübra Atlan
+**Kübra Atlan**
 
 ---
 
 # License
 
-This repository is shared for portfolio and educational purposes.
+This repository is shared for educational and portfolio purposes.
 
-The source code is publicly available for learning and research.
+The source code is publicly available for learning, research, and demonstration of custom neural network implementations.
