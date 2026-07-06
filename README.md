@@ -1,7 +1,7 @@
 # Handwritten Digit Recognition
 
 <p align="center">
-  <img src="images/hand1.png" width="100%" alt="Handwritten Digit Recognition">
+  <img src="hand1.png" width="100%" alt="Handwritten Digit Recognition">
 </p>
 
 > A desktop application that recognizes handwritten digits using a Convolutional Neural Network (CNN) trained on the MNIST dataset.
